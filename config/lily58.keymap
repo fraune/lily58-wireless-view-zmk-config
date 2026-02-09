@@ -13,14 +13,26 @@
         command_shift_bracketleft: command_shift_bracketleft {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LGUI &kp LSHFT &kp LBKT>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI &kp LSHFT>,
+                <&macro_tap>,
+                <&kp LBKT>,
+                <&macro_release>;
+
             label = "COMMAND_SHIFT_BRACKETLEFT";
         };
 
         command_shift_bracketright: command_shift_bracketright {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LGUI &kp LSHFT &kp RBKT>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI &kp LSHFT>,
+                <&macro_tap>,
+                <&kp RBKT>,
+                <&macro_release>;
+
             label = "COMMAND_SHIFT_BRACKETRIGHT";
         };
     };
