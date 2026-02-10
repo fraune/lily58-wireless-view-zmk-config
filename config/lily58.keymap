@@ -14,26 +14,22 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LGUI &kp LSHFT>,
-                <&macro_tap>,
-                <&kp LBKT>,
-                <&macro_release>;
-
-            label = "COMMAND_SHIFT_BRACKETLEFT";
+                <&macro_press   &kp LGUI>,
+                <&macro_press   &kp LSHFT>,
+                <&macro_tap     &kp LBKT>,
+                <&macro_release &kp LSHFT>,
+                <&macro_release &kp LGUI>;
         };
 
         command_shift_bracketright: command_shift_bracketright {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LGUI &kp LSHFT>,
-                <&macro_tap>,
-                <&kp RBKT>,
-                <&macro_release>;
-
-            label = "COMMAND_SHIFT_BRACKETRIGHT";
+                <&macro_press   &kp LGUI>,
+                <&macro_press   &kp LSHFT>,
+                <&macro_tap     &kp RBKT>,
+                <&macro_release &kp LSHFT>,
+                <&macro_release &kp LGUI>;
         };
     };
 
