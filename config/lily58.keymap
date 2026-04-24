@@ -11,7 +11,7 @@
 
 / {
     macros {
-        tab_cycle_left: command_shift_bracketleft {
+        tab_cycle_left: tab_cycle_left {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -27,7 +27,7 @@
                 <&kp LGUI>;
         };
 
-        tab_cycle_right: command_shift_bracketright {
+        tab_cycle_right: tab_cycle_right {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
