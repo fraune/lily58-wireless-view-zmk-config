@@ -7,10 +7,11 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 / {
     macros {
-        command_shift_bracketleft: command_shift_bracketleft {
+        tab_cycle_left: command_shift_bracketleft {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -26,7 +27,7 @@
                 <&kp LGUI>;
         };
 
-        command_shift_bracketright: command_shift_bracketright {
+        tab_cycle_right: command_shift_bracketright {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -40,6 +41,48 @@
                 <&kp LSHFT>,
                 <&macro_release>,
                 <&kp LGUI>;
+        };
+
+        zoom_reset: zoom_reset {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp N0>,
+                <&macro_release>,
+                <&kp LGUI>;
+
+            label = "ZOOM_RESET";
+        };
+
+        zoom_out: zoom_out {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp MINUS>,
+                <&macro_release>,
+                <&kp LGUI>;
+
+            label = "ZOOM_OUT";
+        };
+
+        zoom_in: zoom_in {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp EQUAL>,
+                <&macro_release>,
+                <&kp LGUI>;
+
+            label = "ZOOM_IN";
         };
     };
 
@@ -76,11 +119,11 @@
 
             display-name = "Lower";
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0          &bt BT_SEL 1          &bt BT_SEL 2  &bt BT_SEL 3       &bt BT_SEL 4                                           &trans  &trans         &trans      &trans  &trans  &trans
-&trans      &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_MUTE    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP                                        &trans  &trans         &trans      &trans  &trans  &trans
-&caps_word  &trans                &trans                &trans        &trans             &trans                                                 &trans  &trans         &trans      &trans  &trans  &trans
-&kp LSHFT   &trans                &trans                &trans        &trans             &trans           &command_shift_bracketleft    &trans  &trans  &trans         &trans      &trans  &trans  &kp RSHFT
-                                                        &kp LALT      &kp LGUI           &trans           &trans                        &trans  &trans  &kp BACKSPACE  &kp DELETE
+&bt BT_CLR  &bt BT_SEL 0          &bt BT_SEL 1          &bt BT_SEL 2  &bt BT_SEL 3       &bt BT_SEL 4                                &trans  &trans         &trans      &trans  &trans  &trans
+&trans      &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_MUTE    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP                             &trans  &trans         &trans      &trans  &trans  &trans
+&caps_word  &trans                &trans                &trans        &trans             &trans                                      &trans  &trans         &trans      &trans  &trans  &trans
+&kp LSHFT   &trans                &trans                &trans        &trans             &trans           &tab_cycle_left    &trans  &trans  &trans         &trans      &trans  &trans  &kp RSHFT
+                                                        &kp LALT      &kp LGUI           &trans           &trans             &trans  &trans  &kp BACKSPACE  &kp DELETE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -96,11 +139,11 @@
 
             display-name = "Raise";
             bindings = <
-&kp F1     &kp F2  &kp F3  &kp F4    &kp F5    &kp F6                                         &kp F7  &kp F8         &kp F9        &kp F10   &kp F11    &kp F12
-&kp TAB    &trans  &trans  &trans    &trans    &trans                                         &trans  &trans         &trans        &trans    &trans     &trans
-&kp CAPS   &trans  &trans  &trans    &trans    &trans                                         &trans  &kp LEFT       &kp DOWN      &kp UP    &kp RIGHT  &trans
-&kp LSHFT  &trans  &trans  &trans    &trans    &trans  &trans    &command_shift_bracketright  &trans  &kp KP_PLUS    &kp KP_EQUAL  &kp BSLH  &kp PIPE   &kp RSHFT
-                           &kp LALT  &kp LGUI  &trans  &trans    &trans                       &trans  &kp BACKSPACE  &kp DELETE
+&kp F1     &kp F2  &kp F3  &kp F4    &kp F5    &kp F6                              &kp F7     &kp F8         &kp F9        &kp F10   &kp F11    &kp F12
+&kp TAB    &trans  &trans  &trans    &trans    &trans                              &trans     &zoom_reset    &zoom_out     &zoom_in  &trans     &trans
+&kp CAPS   &trans  &trans  &trans    &trans    &trans                              &mkp LCLK  &kp LEFT       &kp DOWN      &kp UP    &kp RIGHT  &trans
+&kp LSHFT  &trans  &trans  &trans    &trans    &trans  &trans    &tab_cycle_right  &trans     &kp KP_PLUS    &kp KP_EQUAL  &kp BSLH  &kp PIPE   &kp RSHFT
+                           &kp LALT  &kp LGUI  &trans  &trans    &trans            &trans     &kp BACKSPACE  &kp DELETE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
