@@ -121,7 +121,7 @@
             bindings = <
 &bt BT_CLR  &bt BT_SEL 0          &bt BT_SEL 1          &bt BT_SEL 2  &bt BT_SEL 3       &bt BT_SEL 4                                &trans  &trans         &trans      &trans  &trans  &trans
 &trans      &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_MUTE    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP                             &trans  &trans         &trans      &trans  &trans  &trans
-&caps_word  &trans                &trans                &trans        &trans             &trans                                      &trans  &trans         &trans      &trans  &trans  &trans
+&caps_word  &kp CAPS              &trans                &trans        &trans             &trans                                      &trans  &trans         &trans      &trans  &trans  &trans
 &kp LSHFT   &trans                &trans                &trans        &trans             &trans           &tab_cycle_left    &trans  &trans  &trans         &trans      &trans  &trans  &kp RSHFT
                                                         &kp LALT      &kp LGUI           &trans           &trans             &trans  &trans  &kp BACKSPACE  &kp DELETE
             >;
@@ -141,7 +141,7 @@
             bindings = <
 &kp F1     &kp F2  &kp F3  &kp F4    &kp F5    &kp F6                              &kp F7     &kp F8         &kp F9        &kp F10   &kp F11    &kp F12
 &kp TAB    &trans  &trans  &trans    &trans    &trans                              &trans     &zoom_reset    &zoom_out     &zoom_in  &trans     &trans
-&kp CAPS   &trans  &trans  &trans    &trans    &trans                              &mkp LCLK  &kp LEFT       &kp DOWN      &kp UP    &kp RIGHT  &trans
+&trans     &trans  &trans  &trans    &trans    &trans                              &mkp LCLK  &kp LEFT       &kp DOWN      &kp UP    &kp RIGHT  &trans
 &kp LSHFT  &trans  &trans  &trans    &trans    &trans  &trans    &tab_cycle_right  &trans     &kp KP_PLUS    &kp KP_EQUAL  &kp BSLH  &kp PIPE   &kp RSHFT
                            &kp LALT  &kp LGUI  &trans  &trans    &trans            &trans     &kp BACKSPACE  &kp DELETE
             >;
